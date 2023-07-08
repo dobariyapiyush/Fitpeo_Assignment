@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fitpeo Assignment</string>
+
+    // Network Error
+    <string name="retry">Retry</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="network_error">Network Error</string>
+    <string name="check_your_connection">Failed to connect to the server. Please check your internet connection.</string>
+
+</resources>
