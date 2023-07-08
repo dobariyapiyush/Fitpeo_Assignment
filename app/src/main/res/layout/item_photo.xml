@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="photo"
             type="com.app.fitpeo_assignment.network.model.PhotoData" />
@@ -20,7 +19,7 @@
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:src="@drawable/placeholder"
+            android:src="@drawable/image_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

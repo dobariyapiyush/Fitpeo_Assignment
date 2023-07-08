@@ -15,6 +15,8 @@
     <color name="mainTitle">#0D0024</color>
     <color name="mainBackground">#F5F5F5</color>
 
+    <color name="shimmer_placeholder">#dddddd</color>
+
     <color name="dialog_title">#0D0024</color>
     <color name="dialog_subtitle">#979797</color>
     <color name="dialog_negative">#EDF1F7</color>

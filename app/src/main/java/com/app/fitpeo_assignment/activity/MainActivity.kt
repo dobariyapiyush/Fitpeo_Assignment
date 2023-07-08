@@ -44,6 +44,8 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
         viewModel.photos.observe(this, { photos ->
             adapter.submitList(photos)
+            adapter.showShimmer = false
+            adapter.notifyDataSetChanged()
         })
 
         viewModel.fetchPhotos()

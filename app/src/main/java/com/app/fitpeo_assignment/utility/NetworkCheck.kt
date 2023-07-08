@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.widget.Toast
 import com.app.fitpeo_assignment.R
 
 fun Activity.networkError(
@@ -37,17 +38,18 @@ fun Activity.showNetworkErrorPopup(
     onNetworkAvailable: () -> Unit,
     negativeClickListener: () -> Unit
 ) {
-    commonDialog(
-        layoutResId = R.layout.dialog_network_error,
-        cancelable = false,
-        title = getString(R.string.network_error),
-        message = getString(R.string.check_your_connection),
-        positiveClickListener = { dialog, _ ->
-            dialog.dismiss()
-            networkError(onNetworkAvailable, negativeClickListener)
-        },
-        negativeClickListener = {
-            negativeClickListener()
-        }
-    )
+    Toast.makeText(this, getString(R.string.check_your_connection), Toast.LENGTH_SHORT).show()
+//    commonDialog(
+//        layoutResId = R.layout.dialog_network_error,
+//        cancelable = false,
+//        title = getString(R.string.network_error),
+//        message = getString(R.string.check_your_connection),
+//        positiveClickListener = { dialog, _ ->
+//            dialog.dismiss()
+//            networkError(onNetworkAvailable, negativeClickListener)
+//        },
+//        negativeClickListener = {
+//            negativeClickListener()
+//        }
+//    )
 }
