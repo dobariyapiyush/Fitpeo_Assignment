@@ -1,6 +1,6 @@
 package com.app.fitpeo_assignment.network.client
 
-import com.app.fitpeo_assignment.activity.MainActivity
+import com.app.fitpeo_assignment.ui.activity.MainActivity
 import com.app.fitpeo_assignment.network.core.BASE_URL
 import com.app.fitpeo_assignment.network.interfaces.PhotoService
 import com.app.fitpeo_assignment.network.repository.PhotoRepository
@@ -9,14 +9,17 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import android.util.Base64
 import retrofit2.converter.gson.GsonConverterFactory
+import java.nio.charset.StandardCharsets
 
 @Module
 class AppModule {
+
     @Provides
     fun providePhotoApiService(): PhotoService {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(decodeUrl(BASE_URL))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -37,6 +40,10 @@ class AppModule {
 @Component(modules = [AppModule::class])
 interface AppComponent {
     fun inject(activity: MainActivity)
-    fun providePhotoViewModelFactory(): PhotoViewModelFactory
+    fun getPhotoViewModelFactory(): PhotoViewModelFactory
 }
 
+fun decodeUrl(url: String): String {
+    val decodedBytes: ByteArray = Base64.decode(url, Base64.DEFAULT)
+    return String(decodedBytes, StandardCharsets.UTF_8)
+}

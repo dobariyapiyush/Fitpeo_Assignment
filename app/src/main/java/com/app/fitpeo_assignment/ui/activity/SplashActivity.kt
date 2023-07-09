@@ -1,13 +1,15 @@
-package com.app.fitpeo_assignment.activity
+package com.app.fitpeo_assignment.ui.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AlertDialog
 import com.app.fitpeo_assignment.base.BaseActivity
 import com.app.fitpeo_assignment.base.BaseBindingActivity
 import com.app.fitpeo_assignment.databinding.ActivitySplashBinding
 import com.app.fitpeo_assignment.utility.networkError
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
@@ -24,12 +26,20 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
         super.initView()
         networkError(
             onNetworkAvailable = {
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                finish()
+                redirectToActivity()
             },
             negativeClickListener = {
                 finishAffinity()
             }
         )
+    }
+
+    private fun redirectToActivity() {
+        val coroutineScope = CoroutineScope(Dispatchers.Main)
+        coroutineScope.launch {
+            delay(2000)
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        }
     }
 }

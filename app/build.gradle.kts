@@ -59,6 +59,9 @@ dependencies {
     // Circle Image
     implementation(libs.circleimageview)
 
+    // Shimmer
+    implementation(libs.shimmer)
+
     // SDP and SSP
     implementation(libs.sdp.android)
     implementation(libs.ssp.android)
@@ -76,6 +79,7 @@ dependencies {
 
     // Dagger 2
     implementation(libs.dagger)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     kapt(libs.dagger.compiler)
 
     // Kotlin Coroutines and Core
@@ -98,4 +102,8 @@ dependencies {
     testImplementation(libs.assertj.core)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.androidx.core.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.jetbrains.kotlinx.coroutines.test)
 }

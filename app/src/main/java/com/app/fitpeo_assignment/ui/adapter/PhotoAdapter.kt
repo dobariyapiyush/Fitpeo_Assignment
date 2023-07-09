@@ -1,4 +1,4 @@
-package com.app.fitpeo_assignment.adapter
+package com.app.fitpeo_assignment.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.fitpeo_assignment.R
-import com.app.fitpeo_assignment.activity.DetailActivity
+import com.app.fitpeo_assignment.ui.activity.DetailActivity
 import com.app.fitpeo_assignment.databinding.ItemPhotoBinding
 import com.app.fitpeo_assignment.network.core.PHOTO_TITLE
 import com.app.fitpeo_assignment.network.core.PHOTO_URL

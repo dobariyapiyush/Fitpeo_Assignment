@@ -23,7 +23,7 @@ fun Context.commonDialog(
 ) {
     val dialogView = LayoutInflater.from(this).inflate(layoutResId, null)
 
-    val builder = AlertDialog.Builder(this)
+    val builder = AlertDialog.Builder(this, R.style.CustomAlertDialogStyle)
         .setView(dialogView)
         .setCancelable(cancelable)
 

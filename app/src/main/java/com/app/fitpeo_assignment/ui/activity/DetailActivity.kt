@@ -1,8 +1,6 @@
-package com.app.fitpeo_assignment.activity
+package com.app.fitpeo_assignment.ui.activity
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.app.fitpeo_assignment.R
 import com.app.fitpeo_assignment.base.BaseActivity
 import com.app.fitpeo_assignment.base.BaseBindingActivity
@@ -23,6 +21,10 @@ class DetailActivity : BaseBindingActivity<ActivityDetailBinding>() {
 
     override fun initView() {
         super.initView()
+        setData()
+    }
+
+    private fun setData() {
         val photoTitle = intent.getStringExtra(PHOTO_TITLE)
         val photoUrl = intent.getStringExtra(PHOTO_URL)
         with(mBinding) {
@@ -37,7 +39,6 @@ class DetailActivity : BaseBindingActivity<ActivityDetailBinding>() {
 
     override fun initViewListener() {
         super.initViewListener()
-
         setClickListener(
             mBinding.clickBack
         )

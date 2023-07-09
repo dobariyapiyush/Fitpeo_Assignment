@@ -1,5 +1,6 @@
 package com.app.fitpeo_assignment.network.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
 class PhotoViewModel(private val photoRepository: PhotoRepository) : ViewModel() {
     private val _photos = MutableLiveData<List<PhotoData>>()
     val photos: LiveData<List<PhotoData>> = _photos
+    var error: String = ""
 
     fun fetchPhotos() {
         viewModelScope.launch {
@@ -19,7 +21,7 @@ class PhotoViewModel(private val photoRepository: PhotoRepository) : ViewModel()
                 val result = photoRepository.getPhotos()
                 _photos.value = result
             } catch (e: Exception) {
-                // Handle error
+                error = e.message.toString()
             }
         }
     }
